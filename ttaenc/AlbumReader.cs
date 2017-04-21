@@ -17,12 +17,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TagLib;
 
 namespace ttaenc
@@ -84,17 +81,17 @@ namespace ttaenc
         {
             return paths.SelectMany(file =>
             {
-                if (System.IO.Directory.Exists(file))
+                if (Directory.Exists(file))
                 {
-                    return GetAudioFiles(new System.IO.DirectoryInfo(file).GetFileSystemInfos().Select(_ => _.FullName));
+                    return GetAudioFiles(new DirectoryInfo(file).GetFileSystemInfos().Select(_ => _.FullName));
                 }
 
-                var info = new FileInfo(file);
-                if (info.Exists && IsAudioFile(info))
+                if (System.IO.File.Exists(file) && IsAudioFile(new FileInfo(file)))
                 {
                     return new[] { file };
                 }
 
+                log.Warn(string.Format(@"""{0}"" is neither file nor folder. Skipping.", file));
                 return Enumerable.Empty<string>();
             });
         }

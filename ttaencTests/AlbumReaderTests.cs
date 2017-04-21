@@ -38,5 +38,13 @@ namespace ttaenc.Tests
             var track = new AlbumReader().GetTrack(new FileInfo(audioFile));
             Assert.AreEqual("Soundmatch", String.Join(", ", track.Artists));
         }
+
+        [Test()]
+        public void CreateFromInputPathsTest_does_not_break_for_illegal_chars()
+        {
+            var systemUnderTest = new AlbumReader();
+            var files = systemUnderTest.GetAudioFiles(new[] { ":" });
+            Assert.IsEmpty(files);
+        }
     }
 }
