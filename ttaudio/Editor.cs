@@ -229,7 +229,10 @@ namespace ttaudio
                 {
                     p.ProductId = productId;
                 }
-                p.PlaybackMode = (PlaybackModes)this.comboBoxPlaybackMode.SelectedIndex;
+                this.comboBoxPlaybackMode.Invoke((MethodInvoker)(() =>
+                {
+                    p.PlaybackMode = (PlaybackModes)this.comboBoxPlaybackMode.SelectedIndex;
+                }));
             }
         }
 
