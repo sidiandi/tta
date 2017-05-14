@@ -53,6 +53,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxProductId = new System.Windows.Forms.TextBox();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.checkBoxOrderOid = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.comboBoxPlaybackMode = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -285,6 +287,8 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.checkBoxOrderOid);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.label5);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.comboBoxPlaybackMode);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label3);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.textBoxProductId);
@@ -333,6 +337,25 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Playback Mode";
             // 
+            // checkBoxOrderOid
+            //
+            this.checkBoxOrderOid.AutoSize = true;
+            this.checkBoxOrderOid.Location = new System.Drawing.Point(78, 62);
+            this.checkBoxOrderOid.Name = "checkBoxOrderOid";
+            this.checkBoxOrderOid.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxOrderOid.TabIndex = 8;
+            this.checkBoxOrderOid.Text = "Keep track-Oids ordered";
+            this.checkBoxOrderOid.UseVisualStyleBackColor = true;
+            this.checkBoxOrderOid.CheckedChanged += new System.EventHandler(this.checkBoxOrderOid_CheckedChanged);
+            //
+            // label5
+            //
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Settings";
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
@@ -438,6 +461,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPrint;
         private System.Windows.Forms.ComboBox comboBoxPlaybackMode;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBoxOrderOid;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }

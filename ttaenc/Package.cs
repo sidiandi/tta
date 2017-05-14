@@ -75,6 +75,23 @@ namespace ttaenc
 
         public int NextOid {get; set; }
 
+        bool sortOid = false;
+
+        public bool SortOid {
+            get
+            {
+                return sortOid;
+            }
+            set
+            {
+                sortOid = value;
+                if (sortOid)
+                {
+                    ReOid();
+                }
+            }
+        }
+
         public int GetNextOid()
         {
             return NextOid++;
@@ -138,6 +155,20 @@ namespace ttaenc
                 .OrderBy(_ => _.Album)
                 .ThenBy(_ => _.TrackNumber)
                 .ToArray();
+
+            if (SortOid)
+            {
+                ReOid();
+            }
+        }
+
+        public void ReOid()
+        {
+            NextOid = StopOid + 1;
+            foreach(var track in Tracks)
+            {
+                track.Oid = this.GetNextOid();
+            }
         }
 
         public void RemoveTracks(IEnumerable<Track> enumerable)
